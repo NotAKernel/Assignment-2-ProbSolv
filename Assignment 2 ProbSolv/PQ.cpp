@@ -96,6 +96,5 @@ int PriorityQueue<T>::GetNumItems()
 template<typename T>
 Heap<T> PriorityQueue<T>::CopyHeap()
 {
-    Heap<T> copy = Heap<T>(items);
-    return copy;
+    return Heap<T>(items);
 }

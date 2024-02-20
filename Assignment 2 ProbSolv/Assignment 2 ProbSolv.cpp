@@ -91,9 +91,9 @@ void CallPatient(PriorityQueue<Patient>& q)
 
 void PrintList(PriorityQueue<Patient> q)
 {
-    Heap<Patient> list = q.CopyHeap();
-    for (int i = 0; i < 5; i++) {
-        cout << "Name: " << list.elements[i].getName() << "\nPriority: " << list.elements[i].getPriority() << "\n---------\n";
+    Heap<Patient> pList = q.CopyHeap();
+    for (int i = 0; i < q.GetNumItems(); i++) {
+        cout << "Name: " << pList.elements[i].getName() << "\nPriority: " << pList.elements[i].getPriority() << "\n---------\n";
     }
 }
 
