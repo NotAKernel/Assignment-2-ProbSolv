@@ -18,6 +18,30 @@ public:
 	string getName();
 	int getPriority();
 
+	bool operator==(const Patient& other) const {
+		return this->Priority == other.Priority; 
+	}
+	
+	bool operator>(const Patient& other) const {
+		return this->Priority > other.Priority; 
+	}
+
+	bool operator<(const Patient& other) const {
+		return this->Priority < other.Priority; 
+	}
+
+	bool operator>=(const Patient& other) const {
+		return this->Priority >= other.Priority; 
+	}
+
+	bool operator<=(const Patient& other) const {
+		return this->Priority >= other.Priority; 
+	}
+
+	bool operator!=(const Patient& other) const {
+		return this->Priority != other.Priority; 
+	}
+
 };
 
 #endif // PATIENT_H

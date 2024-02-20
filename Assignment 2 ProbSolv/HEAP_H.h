@@ -7,7 +7,6 @@ struct Heap {
     ItemType Remove();
     void ReheapDown(int root, int bottom);
     void ReheapUp(int root, int bottom);
-    void Swap(int index1, int index2);
     ItemType* elements;
     int numElements = 0;
     Heap(ItemType* arr);

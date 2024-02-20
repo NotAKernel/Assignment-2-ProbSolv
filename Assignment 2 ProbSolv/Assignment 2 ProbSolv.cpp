@@ -3,10 +3,6 @@
 #include "Heap.cpp"
 
 using namespace std;
-
-void SortList(Heap<int>& heap, Patient list[], int size);
-void CallPatient(Heap<int>& heap, Patient list[], int& size);
-void PrintList(Patient list[], int size);
 void AddPatient(string& name, int& priority);
 void DisplayMenu();
 
@@ -15,9 +11,8 @@ int main()
     string name;
     int priority;
 
-    int arr[100];
-    Heap<int> pHeap(arr);
     Patient pList[100];
+    Heap<Patient> pHeap(pList);
 
     int size = 5;
     pList[0] = Patient("Dave", 3);
@@ -26,7 +21,6 @@ int main()
     pList[3] = Patient("John", 5);
     pList[4] = Patient("Yup", 1);
 
-    SortList(pHeap, pList, size);
 
     int option;
 
@@ -39,13 +33,11 @@ int main()
             AddPatient(name, priority);
             pList[size] = Patient(name, priority);
             size++;
-            SortList(pHeap, pList, size);
             break;
         case 2:
-            CallPatient(pHeap, pList, size);
             break;
         case 3:
-            PrintList(pList, size);
+
             break;
         case 0:
             break;
@@ -57,43 +49,6 @@ int main()
     return 0;
 }
 
-void SortList(Heap<int>& heap, Patient list[], int size)
-{
-    for (int i = heap.numElements; i < size; i++) {
-        heap.Insert(list[i].getPriority());
-    }
-
-    for (int i = size - 1; i >= 0; i--) {
-        int priority = heap.Remove();
-        for (int j = 0; j < size; j++) {
-            if (list[j].getPriority() == priority) {
-                Patient temp = list[i];
-                list[i] = list[j];
-                list[j] = temp;
-            }
-        }
-    }
-}
-
-void CallPatient(Heap<int>& heap, Patient list[], int& size)
-{
-    if (size == 0) {
-        cout << "No patients in list\n";
-    }
-    else {
-        heap.Remove();
-        size--;
-        cout << list[size].getName() << endl;
-    }
-
-}
-
-void PrintList(Patient list[], int size)
-{
-    for (int i = size - 1; i >= 0; i--) {
-        cout << "Name: " << list[i].getName() << "\nPriority: " << list[i].getPriority() << "\n\n";
-    }
-}
 
 void AddPatient(string& name, int& priority)
 {

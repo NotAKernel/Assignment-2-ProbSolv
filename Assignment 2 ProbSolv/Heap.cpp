@@ -58,14 +58,6 @@ void Heap<ItemType>::ReheapUp(int root, int bottom)
 }
 
 template<class ItemType>
-void Heap<ItemType>::Swap(int index1, int index2)
-{
-    ItemType temp = elements[index1];
-    elements[index1] = elements[index2];
-    elements[index2] = temp;
-}
-
-template<class ItemType>
 Heap<ItemType>::Heap(ItemType* arr)
 {
     this->elements = arr;
