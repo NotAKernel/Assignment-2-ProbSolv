@@ -86,15 +86,3 @@ void PriorityQueue<T>::RemoveItem(T& item, int index)
     else
         items.ReheapUp(0, index);
 }
-
-template<typename T>
-int PriorityQueue<T>::GetNumItems()
-{
-    return numItems;
-}
-
-template<typename T>
-Heap<T> PriorityQueue<T>::CopyHeap()
-{
-    return Heap<T>(items);
-}

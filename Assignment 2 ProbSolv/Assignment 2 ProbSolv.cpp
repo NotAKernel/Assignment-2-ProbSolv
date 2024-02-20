@@ -91,9 +91,16 @@ void CallPatient(PriorityQueue<Patient>& q)
 
 void PrintList(PriorityQueue<Patient> q)
 {
-    Heap<Patient> pList = q.CopyHeap();
-    for (int i = 0; i < q.GetNumItems(); i++) {
-        cout << "Name: " << pList.elements[i].getName() << "\nPriority: " << pList.elements[i].getPriority() << "\n---------\n";
+    if (!q.IsEmpty()) {
+        PriorityQueue<Patient> temp = q;
+        while (!temp.IsEmpty()) {
+            Patient p;
+            temp.Dequeue(p);
+            cout << p.getName() << " | " << p.getPriority() << "\n";
+        }
+    }
+    else {
+        cout << "Queue is empty.\n";
     }
 }
 
