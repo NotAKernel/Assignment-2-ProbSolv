@@ -35,7 +35,7 @@ public:
 	}
 
 	bool operator<=(const Patient& other) const {
-		return this->Priority >= other.Priority; 
+		return this->Priority <= other.Priority; 
 	}
 
 	bool operator!=(const Patient& other) const {

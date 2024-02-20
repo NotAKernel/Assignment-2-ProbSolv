@@ -1,25 +1,25 @@
 #include "PATIENT_H.h"
 #include "HEAP_H.h"
 #include "Heap.cpp"
+#include "PQ_H.h"
+#include "PQ.cpp"
 
 using namespace std;
-void AddPatient(string& name, int& priority);
+void AddPatient(PriorityQueue<Patient>& q);
+void CallPatient(PriorityQueue<Patient>& q);
+void PrintList(PriorityQueue<Patient> q);
 void DisplayMenu();
+void PauseAndClear();
 
 int main()
 {
-    string name;
-    int priority;
 
-    Patient pList[100];
-    Heap<Patient> pHeap(pList);
-
-    int size = 5;
-    pList[0] = Patient("Dave", 3);
-    pList[1] = Patient("Earl", 4);
-    pList[2] = Patient("Geoff", 5);
-    pList[3] = Patient("John", 5);
-    pList[4] = Patient("Yup", 1);
+    PriorityQueue<Patient> pList(100);
+    pList.Enqueue(Patient("Dave", 1));
+    pList.Enqueue(Patient("Elf", 3));
+    pList.Enqueue(Patient("Joe", 5));
+    pList.Enqueue(Patient("Yep", 2));
+    pList.Enqueue(Patient("Sure", 4));
 
 
     int option;
@@ -30,19 +30,26 @@ int main()
 
         switch (option) {
         case 1:
-            AddPatient(name, priority);
-            pList[size] = Patient(name, priority);
-            size++;
+            std::system("CLS");
+            AddPatient(pList);
+            PauseAndClear();
             break;
         case 2:
+            std::system("CLS");
+            CallPatient(pList);
+            PauseAndClear();
             break;
         case 3:
-
+            std::system("CLS");
+            PrintList(pList);
+            PauseAndClear();
             break;
         case 0:
+            std::cout << "\n\nThanks for using this program!";
             break;
         default:
             cout << "Invalid option!";
+            PauseAndClear();
         }
     } while (option != 0);
 
@@ -50,8 +57,11 @@ int main()
 }
 
 
-void AddPatient(string& name, int& priority)
+void AddPatient(PriorityQueue<Patient>& q)
 {
+    string name;
+    int priority;
+
     cout << "Please enter a name: ";
     cin >> name;
     
@@ -60,6 +70,31 @@ void AddPatient(string& name, int& priority)
         cin >> priority;
     } while (priority < 1 || priority > 5);
 
+    q.Enqueue(Patient(name, priority));
+}
+
+void CallPatient(PriorityQueue<Patient>& q)
+{
+    if (q.IsEmpty()) {
+        std::cout << "No Items Left In Queue!";
+        return;
+    }
+    else if (q.IsFull()) {
+        std::cout << "No Room Left In Queue!";
+        return;
+    }
+    Patient p; 
+    q.Dequeue(p);
+
+    cout << "Name: " << p.getName() << "\nPriority: " << p.getPriority();
+}
+
+void PrintList(PriorityQueue<Patient> q)
+{
+    Heap<Patient> list = q.CopyHeap();
+    for (int i = 0; i < 5; i++) {
+        cout << "Name: " << list.elements[i].getName() << "\nPriority: " << list.elements[i].getPriority() << "\n---------\n";
+    }
 }
 
 void DisplayMenu()
@@ -69,4 +104,11 @@ void DisplayMenu()
         << "2. Call Next Patient\n"
         << "3. Print Queue\n"
         << "0. Exit\nEnter Choice: ";
+}
+
+void PauseAndClear()
+{
+    std::cout << "\n\n";
+    std::system("Pause");
+    std::system("CLS");
 }
