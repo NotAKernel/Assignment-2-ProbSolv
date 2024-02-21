@@ -1,5 +1,4 @@
-#ifndef PATIENT_H
-#define PATIENT_H
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -44,4 +43,24 @@ public:
 
 };
 
-#endif // PATIENT_H
+
+//========
+
+Patient::Patient()
+{
+}
+
+Patient::Patient(string name, int priority) {
+	this->Name = name;
+	this->Priority = priority;
+}
+
+string Patient::getName()
+{
+	return this->Name;
+}
+
+int Patient::getPriority()
+{
+	return this->Priority;
+}

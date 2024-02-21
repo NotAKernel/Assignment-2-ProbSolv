@@ -18,24 +18,15 @@
     <ClCompile Include="Assignment 2 ProbSolv.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Patient.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Heap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PQ.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HEAP_H.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="PATIENT_H.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PQ_H.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HEAP_H.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

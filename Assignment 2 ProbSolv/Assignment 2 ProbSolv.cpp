@@ -1,8 +1,5 @@
 #include "PATIENT_H.h"
-#include "HEAP_H.h"
-#include "Heap.cpp"
 #include "PQ_H.h"
-#include "PQ.cpp"
 
 using namespace std;
 void AddPatient(PriorityQueue<Patient>& q);
@@ -96,7 +93,7 @@ void PrintList(PriorityQueue<Patient> q)
         while (!temp.IsEmpty()) {
             Patient p;
             temp.Dequeue(p);
-            cout << p.getName() << " | " << p.getPriority() << "\n";
+            cout << "Name: " << p.getName() << "\nPriority: " << p.getPriority() << "\n-------\n";
         }
     }
     else {
