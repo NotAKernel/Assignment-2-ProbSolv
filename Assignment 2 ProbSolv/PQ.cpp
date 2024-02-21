@@ -86,3 +86,20 @@ void PriorityQueue<T>::RemoveItem(T& item, int index)
     else
         items.ReheapUp(0, index);
 }
+
+template<typename T>
+void PriorityQueue<T>::PrintQueue()
+{
+    Heap<T> copy = Heap<T>(items);
+    
+    int tempNum = numItems;
+    T item;
+
+    for (int i = 0; i < numItems; i++) {
+        item = copy.elements[0];
+        std::cout << item << "\n-----\n";
+        copy.elements[0] = copy.elements[tempNum - 1];
+        tempNum--;
+        copy.ReheapDown(0, tempNum - 1);
+    }
+}

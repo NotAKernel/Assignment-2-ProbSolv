@@ -34,6 +34,7 @@ public:
 
     void ChangePriority(T& oldItem, int index, T newItem);
     void RemoveItem(T& item, int index);
+    void PrintQueue();
 
 private:
     int numItems;                    //length

@@ -43,7 +43,7 @@ public:
 	}
 
 	friend std::ostream& operator<<(std::ostream& os, const Patient& p) {
-		os << ;
+		os << "Name: " << p.Name << "\nPriority: " << p.Priority;
 		return os;
 	}
 };

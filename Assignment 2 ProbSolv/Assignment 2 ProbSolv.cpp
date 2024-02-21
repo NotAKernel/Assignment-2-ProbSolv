@@ -7,7 +7,6 @@
 using namespace std;
 void AddPatient(PriorityQueue<Patient>& q);
 void CallPatient(PriorityQueue<Patient>& q);
-void PrintList(PriorityQueue<Patient> q);
 void DisplayMenu();
 void PauseAndClear();
 
@@ -41,7 +40,7 @@ int main()
             break;
         case 3:
             std::system("CLS");
-            PrintList(pList);
+            pList.PrintQueue();
             PauseAndClear();
             break;
         case 0:
@@ -87,21 +86,6 @@ void CallPatient(PriorityQueue<Patient>& q)
     q.Dequeue(p);
 
     cout << "Name: " << p.getName() << "\nPriority: " << p.getPriority();
-}
-
-void PrintList(PriorityQueue<Patient> q)
-{
-    if (!q.IsEmpty()) {
-        PriorityQueue<Patient> temp = q;
-        while (!temp.IsEmpty()) {
-            Patient p;
-            temp.Dequeue(p);
-            cout << p.getName() << " | " << p.getPriority() << "\n";
-        }
-    }
-    else {
-        cout << "Queue is empty.\n";
-    }
 }
 
 void DisplayMenu()
