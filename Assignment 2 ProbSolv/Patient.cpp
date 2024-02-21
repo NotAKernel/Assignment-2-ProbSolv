@@ -7,6 +7,7 @@ Patient::Patient()
 Patient::Patient(string name, int priority) {
 	this->Name = name;
 	this->Priority = priority;
+	this->Timestamp = std::chrono::system_clock::now();
 }
 
 string Patient::getName()
