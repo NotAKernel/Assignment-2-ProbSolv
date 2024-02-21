@@ -6,7 +6,7 @@ PriorityQueue<T>::PriorityQueue(int max)
 {
     maxItems = max;
     items.elements = new T[max];
-    items.numElements = 0;
+    items.numElements = max;
     numItems = 0;
 }
 
