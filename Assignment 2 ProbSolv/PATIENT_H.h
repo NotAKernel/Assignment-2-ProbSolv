@@ -42,6 +42,10 @@ public:
 		return this->Priority != other.Priority; 
 	}
 
+	friend std::ostream& operator<<(std::ostream& os, const Patient& p) {
+		os << ;
+		return os;
+	}
 };
 
 #endif // PATIENT_H
